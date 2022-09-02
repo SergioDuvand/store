@@ -41,6 +41,8 @@ img.setAttribute('src', 'https://m.media-amazon.com/images/I/615UoMEsDEL._AC_SY7
 pid.appendChild(img);
 img.setAttribute('style', 'width: 100px');
 */
+
+/*
 // ESCUCHAR EVENTOS
 
 // Eventos, son las acciones del programa como por ejemplo, hacer click o hacer doble click en una carpeta para abrirla. 
@@ -61,5 +63,25 @@ function btnOnClick() {
 }
 // Con la herramienta .addEventListener() podemos utilizar solo el el archivos JS para escuchar los eventos, y dejar nuestro HTML limpio de código JS.
 btn.addEventListener('click', btnOnClick);
+*/
 
-// evento submit
+//EVENTO SUBMIT en botones de los formularios
+// Los formularios por defecto, usa los botones como tipo submit lo que causa que al mometo de dar click sobre el boton, se recarga toda la página, y oara evitar eso debemos utilzar el argumento event que nos manda como argumento el evento submit, y utilizar el metodo .preventDefault() lo que invalida el comportamiento por defecto del submit de recargar la página, recarga la página pq muestra la info de un formulario en la url.
+const h1 = document.querySelector('h1');
+const input1 = document.querySelector('#calculo1');
+const input2 = document.querySelector('#calculo2');
+const btn = document.querySelector('#btnCalcular');
+const result = document.getElementById('result');
+const form = document.querySelector('#form');
+
+function sumarInputValues(event) {
+    // console.log(event);
+    event.preventDefault();
+    let firstInput= Number(input1.value);
+    let secondInput= Number(input2.value);
+    let r = firstInput + secondInput;
+    // console.log(firstInput + secondInput);
+    result.innerText= `El resultado de la suma es ${r}`;
+}
+
+form.addEventListener('submit', sumarInputValues);
