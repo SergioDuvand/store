@@ -1,3 +1,4 @@
+/*  
 // SELECTORES EN JS
 // Para poder leer el contenido de nuestro HTML con JS, podemos utilizar selectores los cuales son funciones que nos provee el entorno de ejecución que estamos utlizando, en este caso Google Chrome, y cada uno lo utilizamos para traer los elemtos del HTML, .querySelector trae los elemtos utilizando la suntanxis de css, .getElementById requiere como atributo el id del elemento que queremos seleccionar etc.
 const h1 = document.querySelector('h1');
@@ -39,4 +40,26 @@ img.setAttribute('src', 'https://m.media-amazon.com/images/I/615UoMEsDEL._AC_SY7
 // .append y .appendChils insertan el nuevo codigo despues del ultimo hujo del elemento.
 pid.appendChild(img);
 img.setAttribute('style', 'width: 100px');
+*/
+// ESCUCHAR EVENTOS
 
+// Eventos, son las acciones del programa como por ejemplo, hacer click o hacer doble click en una carpeta para abrirla. 
+const h1 = document.querySelector('h1');
+const input1 = document.querySelector('#calculo1');
+const input2 = document.querySelector('#calculo2');
+const btn = document.querySelector('#btnCalcular');
+const result = document.getElementById('result');
+
+// Podemos escuhar los eventos de distintas manera, el primero es colocar como atributo en las etiquetas HTML onchange para saber si el usuario cmabio el contenido de la caja, y onclick para sabe que el usuario hizo click en un boton y ejecutar el evento, podemos ejecutar código JS en el propio atributo pero es mala practica, asi que tenemos que crear una función en el archivo js.
+
+function btnOnClick() {
+    let firstInput= Number(input1.value);
+    let secondInput= Number(input2.value);
+    let r = firstInput + secondInput;
+    // console.log(firstInput + secondInput);
+    result.innerText= `El resultado de la suma es ${r}`;
+}
+// Con la herramienta .addEventListener() podemos utilizar solo el el archivos JS para escuchar los eventos, y dejar nuestro HTML limpio de código JS.
+btn.addEventListener('click', btnOnClick);
+
+// evento submit
